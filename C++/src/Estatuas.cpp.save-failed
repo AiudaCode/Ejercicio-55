@@ -1,0 +1,136 @@
+#include "Estatuas.h"
+
+Estatuas::Estatuas()
+{
+    tamano = 0;
+    vector = NULL;
+    vector_ordenado = NULL;
+}
+
+Estatuas::~Estatuas()
+{
+    //dtor
+}
+
+void Estatuas::setTamanoVector(int val)
+{
+    tamano = val;
+}
+
+int Estatuas::getTamanoVector()
+{
+    return tamano;
+}
+
+void Estatuas::setVector(int pos, int val)
+{
+    vector[pos] = val;
+}
+
+int Estatuas::getVector(int pos)
+{
+    return vector[pos];
+}
+void Estatuas::setVectorOrdenado(int pos, int val)
+{
+    vector_ordenado[pos] = val;
+}
+
+int Estatuas::getVectorOrdenado(int pos)
+{
+    return vector_ordenado[pos];
+}
+
+void Estatuas::crearVector()
+{
+    vector = new int[tamano];
+}
+
+void Estatuas::crearVectorOrdenado()
+{
+    int tam = tamano+estatuasRequeridas();
+    vector_ordenado = new int[tam];
+    vector_ordenado = new int[tam];
+}
+
+int Estatuas::mayorTamano()
+{
+    int may = 0;
+    int temp;
+    for (int i = 0; i < getTamanoVector(); i++)
+    {
+        temp = getVector(i);
+        if (temp > may)
+        {
+            may = temp;
+        }
+    }
+    return may;
+}
+
+void Estatuas::cambiar(int p1, int p2)
+{
+    int temp = getVector(p1);
+    setVector(p1, getVector(p2));
+    setVector(p2, temp);
+}
+
+void Estatuas::ordenar()
+{
+    for (int i = 0; i < getTamanoVector(); i++)
+    {
+        for (int j = i+1; j < getTamanoVector(); j++)
+        {
+            if (getVector(i) > getVector(j))
+            {
+                cambiar(i, j);
+            }
+        }
+    }
+}
+
+int Estatuas::menorTamano()
+{
+    int men = mayorTamano();
+    int temp;
+    for (int i = 0; i < getTamanoVector(); i++)
+    {
+        temp = getVector(i);
+        if (temp < men)
+        {
+            men = temp;
+        }
+    }
+    return men;
+}
+
+int Estatuas::estatuasRequeridas()
+{
+    return (mayorTamano() - menorTamano() + 1) - getTamanoVector();
+}
+
+bool Estatuas::existe(int n1, int n2)
+{
+    int uno = getVector(n2) - getVector(n1);
+    if (uno == 1)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+void Estatuas::buscarTamanoEstatuas()
+{
+    int contador = estatuasRequeridas();
+    for (int i = 0; i < getTamanoVector(); i++)
+    {
+        if (!existe(i, i+1))
+        {
+
+        }
+    }
+}
+

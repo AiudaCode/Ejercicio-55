@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1492321166 source:c:\users\omarm\dropbox\codeblocks proyects\ejercicio 55\main.cpp
+	<iostream>
+	"Estatuas.h"
+
+1492321170 c:\users\omarm\dropbox\codeblocks proyects\ejercicio 55\include\estatuas.h
+	<iostream>
+
+1492321412 source:c:\users\omarm\dropbox\codeblocks proyects\ejercicio 55\src\estatuas.cpp
+	"Estatuas.h"
+
